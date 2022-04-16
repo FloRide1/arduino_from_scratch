@@ -1,4 +1,4 @@
-# Arduino Scratch
+# Arduino from Scratch
 ## By Florian "FloRide" Reimat
 
 ## How to compile
@@ -18,5 +18,5 @@ cmake --build build/ -- flash-a_scratch
 - [ ] Arduino Mega
 
 ## Links
-[CMake blog for AVR](https://nnarain.github.io/2016/03/29/AVR-CMake-Toolchain.html)
-[CMake github example](https://github.com/nnarain/cmake-avr-toolchain)
+- [CMake blog for AVR](https://nnarain.github.io/2016/03/29/AVR-CMake-Toolchain.html)
+- [CMake github example](https://github.com/nnarain/cmake-avr-toolchain)
