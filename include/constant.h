@@ -23,7 +23,10 @@
 #define MAX(x, y) ((x) > (y) ? (x) : (y))
 
 // Bitwise register operation
+
+// Actually avr-libc provide _BV(x)
 #define MAN_BIT(x) (1 << (x))
+
 #define GET_BIT(var, pos) ((var)&MAN_BIT((pos)))
 
 #define PUT_BIT_ON(var, pos) ((var) | MAN_BIT((pos)))
