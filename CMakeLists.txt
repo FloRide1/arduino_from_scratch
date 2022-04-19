@@ -58,7 +58,7 @@ find_program(AVR_UPLOAD
 )
 
 if(NOT AVR_UPLOAD_BAUD)
-	set(AVR_UPLOAD_BAUD 57600)
+	set(AVR_UPLOAD_BAUD 115200)
 endif(NOT AVR_UPLOAD_BAUD)
 
 if(NOT AVR_UPLOAD_PROGRAMMER)
@@ -67,7 +67,7 @@ endif(NOT AVR_UPLOAD_PROGRAMMER)
 
 if(NOT AVR_UPLOAD_PORT)
 	if(UNIX)
-		set(AVR_UPLOAD_PORT "/dev/ttyUSB0")
+		set(AVR_UPLOAD_PORT "/dev/ttyACM0")
 	endif(UNIX)
 	if(WIN32)
 		set(AVR_UPLOAD_PORT "COM3")
@@ -119,7 +119,7 @@ macro(add_avr_executable target_name avr_mcu)
         ${AVR_UPLOAD} -b${AVR_UPLOAD_BAUD} -c${AVR_UPLOAD_PROGRAMMER} -p${avr_mcu} -U flash:w:${hex_file} -P${AVR_UPLOAD_PORT}
     )
 
-    add_custom_target("flash-${target_name}" DEPENDS "flash-${hex_file}")
+    add_custom_target("flash" DEPENDS "flash-${hex_file}")
 
 endmacro(add_avr_executable)
 
