@@ -6,6 +6,9 @@
 
 #include "constant.h"
 
+#define HIGH 0x1
+#define LOW 0x0
+
 #define INPUT 0x0
 #define OUTPUT 0x1
 #define INPUT_PULLUP 0x2
@@ -35,5 +38,10 @@ extern const uint8_t PROGMEM PGM_PIN_TO_BITMASK[];
  * @brief Configure the pin as an INPUT or an OUTPUT
  */
 void pinMode(uint8_t pin, uint8_t mode);
+
+/**
+ * @brief Set the OUTPUT pin to HIGH level or LOW level
+ */
+void digitalWrite(uint8_t pin, uint8_t state);
 
 #endif
