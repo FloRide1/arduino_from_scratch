@@ -10,7 +10,10 @@ cmake -S . -B build/
 cmake --build build/
 
 # Flash
-cmake --build build/ -- flash-a_scratch
+cmake --build build/ -- flash
+
+# Flash + Compile
+cmake --build build/ -- all flash
 ```
 
 ## Boards
