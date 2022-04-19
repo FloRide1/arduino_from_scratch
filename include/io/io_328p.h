@@ -3,6 +3,8 @@
 
 #include <avr/pgmspace.h>
 
+#include "io.h"
+
 #define NUM_DIGITAL_PINS 20
 #define NUM_ANALOG_INPUTS 6
 
