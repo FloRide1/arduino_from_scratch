@@ -30,9 +30,9 @@ extern const uint8_t PROGMEM PGM_PIN_TO_BITMASK[];
 
 #define PIN_TO_PORT(x) (pgm_read_byte(PGM_PIN_TO_PORT + (x)));
 #define PIN_TO_BITMASK(x) (pgm_read_byte(PGM_PIN_TO_BITMASK + (x)));
-#define PORT_TO_MODE(x) ((volatile uint8_t *)pgm_read_word(PGM_PORT_TO_MODE + (x)));
-#define PORT_TO_OUTPUT(x) ((volatile uint8_t *)pgm_read_word(PGM_PORT_TO_OUTPUT + (x)));
-#define PORT_TO_INPUT(x) ((volatile uint8_t *)pgm_read_word(PGM_PORT_TO_INPUT + (x)));
+#define PORT_TO_MODE(x) ((volatile uint8_t *)pgm_read_byte(PGM_PORT_TO_MODE + (x)));
+#define PORT_TO_OUTPUT(x) ((volatile uint8_t *)pgm_read_byte(PGM_PORT_TO_OUTPUT + (x)));
+#define PORT_TO_INPUT(x) ((volatile uint8_t *)pgm_read_byte(PGM_PORT_TO_INPUT + (x)));
 
 /**
  * @brief Configure the pin as an INPUT or an OUTPUT

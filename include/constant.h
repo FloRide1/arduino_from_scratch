@@ -27,18 +27,29 @@
 // Actually avr-libc provide _BV(x)
 #define MAN_BIT(x) (1 << (x))
 
-#define GET_BIT(var, pos) ((var)&MAN_BIT((pos)))
+#define GET_BIT(var, bit) ((var) & (bit))
+#define GET_BIT_P(var, pos) (GET_BIT(var, MAN_BIT(pos))
 
-#define PUT_BIT_ON(var, pos) ((var) | MAN_BIT((pos)))
-#define PUT_BIT_OFF(var, pos) ((var) & ~MAN_BIT((pos)))
-#define PUT_BIT_INV(var, pos) ((var) ^ MAN_BIT((pos)))
-#define PUT_BIT(var, pos, state) \
-    ((state) ? PUT_BIT_ON((var), (pos)) : PUT_BIT_OFF((var), (pos)))
+#define PUT_BIT_ON(var, bit) ((var) | (bit))
+#define PUT_BIT_OFF(var, bit) ((var) & ~(bit))
+#define PUT_BIT_INV(var, bit) ((var) ^ (bit))
+#define PUT_BIT(var, bit, state) \
+    ((state) ? PUT_BIT_ON((var), (bit)) : PUT_BIT_OFF((var), (bit)))
 
-#define SET_BIT_ON(var, pos) ((var) = PUT_BIT_ON((var), (pos)))
-#define SET_BIT_OFF(var, pos) ((var) = PUT_BIT_OFF((var), (pos)))
-#define SET_BIT_INV(var, pos) ((var) = PUT_BIT_INV((var), (pos)))
-#define SET_BIT(var, pos, state) \
-    ((state) ? SET_BIT_ON((var), (pos)) : SET_BIT_OFF((var), (pos)))
+#define PUT_BIT_P_ON(var, pos) (PUT_BIT_ON((var), MAN_BIT(pos)))
+#define PUT_BIT_P_OFF(var, pos) (PUT_BIT_OFF((var), MAN_BIT(pos)))
+#define PUT_BIT_P_INV(var, pos) (PUT_BIT_INV((var), MAN_BIT(pos)))
+#define PUT_BIT_P(var, pos, state) (PUT_BIT((var), MAN_BIT(pos), (state)))
+
+#define SET_BIT_ON(var, bit) ((var) = PUT_BIT_ON((var), (bit)))
+#define SET_BIT_OFF(var, bit) ((var) = PUT_BIT_OFF((var), (bit)))
+#define SET_BIT_INV(var, bit) ((var) = PUT_BIT_INV((var), (bit)))
+#define SET_BIT(var, bit, state) \
+    ((state) ? SET_BIT_ON((var), (bit)) : SET_BIT_OFF((var), (bit)))
+
+#define SET_BIT_P_ON(var, pos) (SET_BIT_ON((var), MAN_BIT(pos)))
+#define SET_BIT_P_OFF(var, pos) (SET_BIT_OFF((var), MAN_BIT(pos)))
+#define SET_BIT_P_INV(var, pos) (SET_BIT_INV((var), MAN_BIT(pos)))
+#define SET_BIT_P(var, pos, state) (SET_BIT((var), MAN_BIT(pos), (state)))
 
 #endif
