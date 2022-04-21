@@ -31,3 +31,15 @@ void digitalWrite(uint8_t pin, uint8_t state)
 
     SET_BIT(*reg, bit, state);
 }
+
+bool digitalRead(uint8_t pin)
+{
+    if (pin >= NUM_DIGITAL_PINS)
+        return false;
+
+    uint8_t port = PIN_TO_PORT(pin);
+    uint8_t bit = PIN_TO_BITMASK(pin);
+    volatile uint8_t *reg = PORT_TO_INPUT(port);
+
+    return GET_BIT(*reg, bit);
+}

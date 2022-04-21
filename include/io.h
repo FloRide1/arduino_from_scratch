@@ -3,6 +3,7 @@
 
 #include <avr/io.h>
 #include <avr/pgmspace.h>
+#include <stdbool.h>
 
 #include "constant.h"
 
@@ -43,5 +44,11 @@ void pinMode(uint8_t pin, uint8_t mode);
  * @brief Set the OUTPUT pin to HIGH level or LOW level
  */
 void digitalWrite(uint8_t pin, uint8_t state);
+
+/**
+ * @brief Get the level measured on pin, as an boolean
+ * Return by default false
+ */
+bool digitalRead(uint8_t pin);
 
 #endif
